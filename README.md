@@ -7,4 +7,5 @@ To use it in your code, replace:
 by: 
     some_surface_subpixel = SubPixelSurface(some_surface) 
     screen.blit(some_surface_subpixel.at(x, y), (x, y)) 
+
 Of course, take care to not re-create the SubPixelSurface every frame.
