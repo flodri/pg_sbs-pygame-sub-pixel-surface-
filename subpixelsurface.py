@@ -7,23 +7,29 @@ DWORD = "u4"  # Int32
 
 
 class SubPixelSurface(object):
-    def __init__(self, surface, x_level=3, y_level=None):
+    def __init__(self, surface: pygame.Surface,
+                 x_level=3, y_level=None):
         """ Creates a sub pixel surface object.
-            surface: A PyGame surface
-            x_level: Number of sub-pixel levels in x
-            y_level: Number of sub-pixel levels in y (same as x if omitted)
 
+        Args:
+            surface (pygame.Surface): A PyGame surface
+            x_level (int): Number of sub-pixel levels in x
+            y_level (int): Number of sub-pixel levels in y (same as x if None)
+
+        Note:
             To use it in your code, replace:
                 screen.blit(some_surface, (x, y))
             by:
                 some_surface_subpixel = SubPixelSurface(some_surface)
                 screen.blit(some_surface_subpixel.at(x, y), (x, y))
             of course, take care to not re-create the SubPixelSurface every frame.
+
         """
-                
         self.x_level = x_level
-        if y_level is None: self.y_level = x_level
-        else: self.y_level = y_level
+        if y_level is None:
+            self.y_level = x_level
+        else:
+            self.y_level = y_level
         
         w, h = surface.get_size()
         ow, oh = w, h        
@@ -52,7 +58,7 @@ class SubPixelSurface(object):
             row = []
             self.surfaces.append(row)
             for frac_x in x_steps:
-                row.append( SubPixelSurface._generate(s, frac_x, frac_y) )
+                row.append(SubPixelSurface._generate(s, frac_x, frac_y))
         
     @staticmethod
     def _generate(s, frac_x, frac_y):
@@ -80,8 +86,11 @@ class SubPixelSurface(object):
         
         return pygame_surface
 
-    def at(self, x, y):
-        """ Return the correct pre-computed sub-pixel surface for a given coordinate.
+    def at(self, x: float, y: float):
+        """
+        Return the correct pre-computed sub-pixel surface for a given coordinate.
+
+        Args:
             x: X coordinate
             y: Y coordinate
         """

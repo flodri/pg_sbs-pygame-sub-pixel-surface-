@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "pg_subpixelsurface"
+version = "1.0.0"
+authors = [
+  {name="Flodri"},
+]
+description = "clean-up and adaptation of https://www.willmcgugan.com/blog/tech/post/going-sub-pixel-with-pygame/ for python3 with Numpy."
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Programming Language :: Python :: 3",
+    "License :: Public Domain",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/flodri/pg_sbs-pygame-sub-pixel-surface-"
+"Bug Tracker" = "https://github.com/flodri/pg_sbs-pygame-sub-pixel-surface-/issues"
