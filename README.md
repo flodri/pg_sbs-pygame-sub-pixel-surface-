@@ -6,7 +6,8 @@ To use it in your code, replace:
 
     screen.blit(some_surface, (x, y)) 
 by: 
-
+    
+    from subpixelsurface import SubPixelSurface
     some_surface_subpixel = SubPixelSurface(some_surface) 
     screen.blit(some_surface_subpixel.at(x, y), (x, y)) 
     
